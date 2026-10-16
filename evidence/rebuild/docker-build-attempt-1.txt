@@ -1,0 +1,95 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 845B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 98B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 636B done
+#5 DONE 0.0s
+
+#6 [2/6] RUN timeout -k 10 120 apk add --no-cache zlib=1.3.2-r1
+#6 CACHED
+
+#7 [3/6] WORKDIR /service
+#7 CACHED
+
+#8 [4/6] COPY requirements.lock .
+#8 CACHED
+
+#9 [5/6] RUN pip install --no-cache-dir pip==26.2.1 && pip install --no-cache-dir --require-hashes -r requirements.lock && python -m pip uninstall -y pip && rm -rf /usr/local/lib/python3.12/ensurepip && adduser -D -u 10001 runner
+#9 2.197 Collecting pip==26.2.1
+#9 3.985   Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+#9 4.543 Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+#9 6.280    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 1.3 MB/s eta 0:00:00
+#9 6.313 Installing collected packages: pip
+#9 6.313   Attempting uninstall: pip
+#9 6.315     Found existing installation: pip 25.0.1
+#9 6.382     Uninstalling pip-25.0.1:
+#9 6.571       Successfully uninstalled pip-25.0.1
+#9 7.481 Successfully installed pip-26.2.1
+#9 7.482 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 14.02 Collecting annotated-doc==0.0.5 (from -r requirements.lock (line 3))
+#9 14.99   Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+#9 15.12 Collecting annotated-types==0.8.0 (from -r requirements.lock (line 7))
+#9 15.25   Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#9 15.48 Collecting anyio==4.15.1 (from -r requirements.lock (line 11))
+#9 15.59   Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+#9 16.03 Collecting click==8.5.0 (from -r requirements.lock (line 15))
+#9 16.14   Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#9 16.43 Collecting fastapi==0.143.0 (from -r requirements.lock (line 19))
+#9 16.54   Downloading fastapi-0.143.0-py3-none-any.whl (144 kB)
+#9 16.68 Collecting h11==0.16.0 (from -r requirements.lock (line 23))
+#9 16.78   Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 16.90 Collecting idna==3.20 (from -r requirements.lock (line 27))
+#9 17.01   Downloading idna-3.20-py3-none-any.whl (69 kB)
+#9 17.61 Collecting numpy==2.5.4 (from -r requirements.lock (line 31))
+#9 17.79   Downloading numpy-2.5.4-cp312-cp312-musllinux_1_2_aarch64.whl (17.0 MB)
+#9 20.61      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.0/17.0 MB 6.0 MB/s  0:00:02
+#9 20.78 Collecting opentelemetry-api==1.45.1 (from -r requirements.lock (line 99))
+#9 20.89   Downloading opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
+#9 21.11 Collecting pydantic==2.14.1 (from -r requirements.lock (line 103))
+#9 21.21   Downloading pydantic-2.14.1-py3-none-any.whl (488 kB)
+#9 22.32 Collecting pydantic-core==2.50.1 (from -r requirements.lock (line 109))
+#9 22.43   Downloading pydantic_core-2.50.1-cp312-cp312-musllinux_1_1_aarch64.whl (2.3 MB)
+#9 22.88      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 5.3 MB/s  0:00:00
+#9 23.02 Collecting starlette==1.8.0 (from -r requirements.lock (line 248))
+#9 23.12   Downloading starlette-1.8.0-py3-none-any.whl (79 kB)
+#9 23.28 Collecting typing-extensions==4.16.0 (from -r requirements.lock (line 252))
+#9 23.39   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#9 23.53 Collecting typing-inspection==0.4.4 (from -r requirements.lock (line 262))
+#9 23.67   Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+#9 23.86 Collecting uvicorn==0.54.0 (from -r requirements.lock (line 268))
+#9 23.98   Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+#9 24.09 Installing collected packages: typing-extensions, numpy, idna, h11, click, annotated-types, annotated-doc, uvicorn, typing-inspection, pydantic-core, opentelemetry-api, anyio, starlette, pydantic, fastapi
+#9 26.73 
+#9 26.73 Successfully installed annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 click-8.5.0 fastapi-0.143.0 h11-0.16.0 idna-3.20 numpy-2.5.4 opentelemetry-api-1.45.1 pydantic-2.14.1 pydantic-core-2.50.1 starlette-1.8.0 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0
+#9 26.73 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 27.38 Found existing installation: pip 26.2.1
+#9 27.41 Uninstalling pip-26.2.1:
+#9 27.42   Successfully uninstalled pip-26.2.1
+#9 27.44 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 DONE 27.6s
+
+#10 [6/6] COPY app ./app
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.3s done
+#11 writing image sha256:8cfcd358e09158ccdc8874b87d7ea598323bf8f04333edaddbed28ee4f1af422
+#11 writing image sha256:8cfcd358e09158ccdc8874b87d7ea598323bf8f04333edaddbed28ee4f1af422 done
+#11 naming to docker.io/library/venturelab-quantforge:0.2.0 done
+#11 DONE 0.3s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/o595zjrx3905kbmknnc83lwqz

@@ -1,0 +1,40 @@
+{
+  "synthetic": true,
+  "http_status": 200,
+  "invalid_input_status": 422,
+  "latency_ms": [
+    3.8474169559776783,
+    2.1375841461122036,
+    2.9789169784635305
+  ],
+  "result": {
+    "equity": [
+      1.0,
+      1.0,
+      0.9896960784313726,
+      1.0288919627256845,
+      1.0283775167443217,
+      0.9883103465727063
+    ],
+    "net_returns": [
+      0.0,
+      -0.010303921568627417,
+      0.03960396039603964,
+      -0.0005,
+      -0.03896153846153855
+    ],
+    "positions": [
+      0.0,
+      1.0,
+      1.0,
+      0.0,
+      -1.0
+    ],
+    "turnover": 3.0,
+    "total_cost_fraction": 0.0015,
+    "total_return": -0.011689653427293667,
+    "max_drawdown": 0.039442057692307686,
+    "sharpe": -1.1456045356025206,
+    "assumptions": "Signals at t affect return t to t+1. Fractional long/short exposure; no financing, slippage beyond stated costs, or liquidation cost. Sharpe assumes zero risk-free rate."
+  }
+}

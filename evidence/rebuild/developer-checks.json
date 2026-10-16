@@ -1,0 +1,48 @@
+{
+  "application": "quantforge",
+  "version": "0.2.0",
+  "recorded_at_utc": "2026-10-14T22:05:44.733641+00:00",
+  "evidence_scope": "Application developer rebuild checks, not independent QA or human validation",
+  "checks": [
+    {
+      "check": "pytest",
+      "exit_code": 0,
+      "evidence": "evidence/rebuild/pytest.txt"
+    },
+    {
+      "check": "frontend",
+      "exit_code": 0,
+      "evidence": "evidence/rebuild/frontend.txt"
+    },
+    {
+      "check": "javascript-syntax",
+      "exit_code": 0,
+      "evidence": "evidence/rebuild/javascript-syntax.txt"
+    },
+    {
+      "check": "bandit",
+      "exit_code": 0,
+      "evidence": "evidence/rebuild/bandit.txt"
+    }
+  ],
+  "application_sha256": {
+    "app/USER_GUIDE.md": "2b4152f4cf2d47f246d7c092a632b0f1c53873483d3c36f2ded073b67d35461c",
+    "app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app/guard.py": "0537a96952380ee89e8d6088f0c798b210ab642add3520ee656136d9504584f8",
+    "app/main.py": "1bf3dfca5139022687f210f3901047082aa658640052a6632d653b2acb9b0c14",
+    "app/static/index.html": "5836a10043ab893e6fac6163d6626a01ad5e95d31950675e10065b3f718e80c5",
+    "app/static/config.js": "77d0d87bae4d455cf7ce601c80962c0a064e126717d78ae4639a4003dbff1cf2",
+    "app/static/data.js": "c12a15bcb1b73fafcf4a5484562b0ccdf657fc53933596222b79c8fdf9dd53c0",
+    "app/static/style.css": "2f18278b89e88530bfd63e93255cf54725bf3c54ea633429ba4bcb909ee4220f",
+    "app/static/workbench.js": "c0acf47d1231da72d47898ae7699eebd047f271c60ff5cc41feed07107af2aec"
+  },
+  "not_verified_by_this_record": [
+    "Docker runtime",
+    "interactive browser UI",
+    "remote GitHub CI",
+    "dependency audit",
+    "release publication"
+  ],
+  "data_provenance": "Bundled examples and test fixtures are synthetic; user imports unverified.",
+  "csv_integrity_followup": "Explicit quoted-empty/whitespace-only/delimiter-empty records preserved; only physically empty lines skipped. Missing numeric observations produce actionable errors. All Python+Node checks rerun and passed."
+}
