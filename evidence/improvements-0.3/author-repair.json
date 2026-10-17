@@ -1,0 +1,33 @@
+{
+  "application": "quantforge",
+  "version": "0.3.0",
+  "role": "Application author repair, separate from independent reviewer",
+  "recorded_at_utc": "2026-10-16T22:34:48.763297+00:00",
+  "changes": "Clarify built-in cost-free comparator exists while custom benchmark construction is unsupported",
+  "checks": [
+    {
+      "name": "author-repair-pytest",
+      "exit_code": 0
+    },
+    {
+      "name": "author-repair-frontend",
+      "exit_code": 0
+    },
+    {
+      "name": "author-repair-ruff",
+      "exit_code": 0
+    }
+  ],
+  "application_sha256": {
+    "app/USER_GUIDE.md": "09944ef2a56ec25573ae0084effd5d4cd9bf653521032f0867491f1411368061",
+    "app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app/guard.py": "d1eda2150e58503114c6cf4ba36d5958aa7e2cfbb496fc0d8026b5c9da4beb77",
+    "app/main.py": "c5e3ac691d75e42fb86b6a266b931c2934efeb0a25271be8bd23f75a9491997a",
+    "app/static/index.html": "a452faa1f16c9ce16168b27a21d9260849baf2ae3bae75208406e3d04395ccbc",
+    "app/static/config.js": "efe0da8469d17a3ca20894351bdf011cc7f0f0876a5566b1eebc94d81e99f027",
+    "app/static/data.js": "c12a15bcb1b73fafcf4a5484562b0ccdf657fc53933596222b79c8fdf9dd53c0",
+    "app/static/style.css": "2f18278b89e88530bfd63e93255cf54725bf3c54ea633429ba4bcb909ee4220f",
+    "app/static/workbench.js": "ee6aae83d69d9a0d58740ff944e816a199e20e1af20bcf02cbbd9264ecf27860"
+  },
+  "independent_review_untouched": true
+}

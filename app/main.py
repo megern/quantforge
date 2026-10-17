@@ -1,4 +1,5 @@
 import math
+from .guard import InputGuard
 import numpy as np
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
@@ -53,7 +54,38 @@ def analyze(req: Request):
     equity = np.r_[1.0, np.cumprod(1 + net)]
     drawdown = equity / np.maximum.accumulate(equity) - 1
     volatility = float(np.std(net, ddof=1))
+    gross_returns = positions * returns
+    gross_equity = np.r_[1.0, np.cumprod(1 + gross_returns)]
+    benchmark_equity = prices / prices[0]
+    benchmark_drawdown = benchmark_equity / np.maximum.accumulate(benchmark_equity) - 1
+    benchmark_volatility = float(np.std(returns, ddof=1))
+    if not math.isfinite(volatility) or not math.isfinite(benchmark_volatility):
+        raise ValueError("volatility overflow; reduce extreme price ratios or exposure")
+    benchmark_return = float(benchmark_equity[-1] - 1)
     return {
+        "gross_equity": gross_equity.tolist(),
+        "period_turnover": turnover.tolist(),
+        "period_cost_fractions": costs.tolist(),
+        "gross_total_return": float(gross_equity[-1] - 1),
+        "cost_impact_return_points": float(gross_equity[-1] - equity[-1]),
+        "benchmark": {
+            "name": "Buy and hold (cost-free comparator)",
+            "equity": benchmark_equity.tolist(),
+            "period_returns": returns.tolist(),
+            "total_return": benchmark_return,
+            "max_drawdown": float(-benchmark_drawdown.min()),
+            "sharpe": (
+                float(
+                    np.mean(returns)
+                    / benchmark_volatility
+                    * np.sqrt(req.periods_per_year)
+                )
+                if benchmark_volatility > 1e-12
+                else None
+            ),
+            "cost_assumptions": "Continuously holds one unit of normalized price exposure from the first observation. No entry, exit, financing or other costs. This cost-free comparator is intentionally distinct from the strategy's stated turnover costs.",
+        },
+        "net_minus_benchmark_return_points": float(equity[-1] - 1 - benchmark_return),
         "equity": equity.tolist(),
         "net_returns": net.tolist(),
         "positions": positions.tolist(),
@@ -70,7 +102,7 @@ def analyze(req: Request):
     }
 
 
-app = FastAPI(title="QuantForge", version="0.2.0")
+app = FastAPI(title="QuantForge", version="0.3.0")
 
 
 STATIC = Path(__file__).parent / "static"
@@ -114,7 +146,5 @@ def run_analysis(req: Request):
     except (ValueError, np.linalg.LinAlgError, OverflowError) as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
 
-
-from .guard import InputGuard
 
 app.add_middleware(InputGuard)
