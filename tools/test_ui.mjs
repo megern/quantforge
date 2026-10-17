@@ -128,3 +128,21 @@ test("synthetic CSV produces actual API request", () => {
   }
 });
 console.log(`${checks} frontend checks passed for ${cfg.title}`);
+
+test("benchmark view keeps gross, net and benchmark concepts distinct", () => {
+  const source = fs.readFileSync(
+    new URL("../app/static/workbench.js", import.meta.url),
+    "utf8",
+  );
+  // Compile the actual formatting helper used by rendered cost-impact cards.
+  const returnPoints = vm.runInNewContext(
+    source.match(/function returnPoints\(v\) \{[^}]+\}/)[0] + ";returnPoints",
+    { format: (value) => Number(value.toFixed(2)).toString() },
+  );
+  assert.equal(returnPoints(0.011), "1.1 pp");
+  assert.equal(returnPoints(-0.12), "-12 pp");
+  assert.ok(source.includes("result.gross_equity"));
+  assert.ok(source.includes("result.benchmark.equity"));
+});
+
+console.log(`${checks} final frontend checks passed for ${cfg.title} v0.3.0`);

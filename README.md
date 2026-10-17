@@ -2,7 +2,7 @@
 
 Backtest a chronological price series against bounded long/short exposure signals, including turnover costs.
 
-**Version0.2.0: local CPU research workbench.** Import a CSV, map the relevant columns, run the real calculation and inspect plots, tables and method assumptions. Export a JSON result report or exact replayable input. No API key, GPU, paid service or external model call is required.
+**Version 0.3.0: local CPU research workbench.** Import a CSV, map the relevant columns, run the real calculation and inspect plots, tables and method assumptions. Export a JSON result report or exact replayable input. No API key, GPU, paid service or external model call is required.
 
 ## Why use it
 
@@ -33,7 +33,7 @@ curl --fail -H 'Content-Type: application/json' --data-binary @examples/syntheti
 
 ## Inputs, outputs and scientific scope
 
-Require positive prices and equally long signal/price arrays with at least four values. Exposure signals must lie between−1 and1. Source rows must already be ordered chronologically. There is no timestamp alignment, automatic strategy discovery, benchmark construction or execution engine.
+Require positive prices and equally long signal/price arrays with at least four values. Exposure signals must lie between−1 and1. Source rows must already be ordered chronologically. A fixed cost-free buy-and-hold comparator is included. There is no timestamp alignment, automatic strategy discovery, custom benchmark construction or execution engine.
 
 Total return is compounded, while total_cost_fraction is the simple sum of per-period turnover deductions and should not be subtracted from total return again. Equity and net-return arrays expose the complete computation. A null Sharpe indicates negligible volatility.
 
@@ -51,4 +51,12 @@ pip-audit --strict
 bandit -r app -ll
 ```
 
-Node is needed only for frontend development checks. Fresh rebuild evidence is in `evidence/rebuild/`. No Docker runtime, remote CI, publication or human review is implied merely by creating files. Required CI must pass before merging. Containers bind localhost and run nonroot; add authentication, HTTPS and deployment resource limits before external access. MIT license.
+Node is needed only for frontend development checks. Fresh v0.3.0 developer evidence is in `evidence/improvements-0.3/`; previous v0.2 records remain historical. No Docker runtime, remote CI, publication or human review is implied merely by creating files. Required CI must pass before merging. Containers bind localhost and run nonroot; add authentication, HTTPS and deployment resource limits before external access. MIT license.
+
+## v0.3.0: benchmark and cost attribution
+
+The workbench now plots three aligned equity series: net strategy, gross strategy and cost-free buy-and-hold. Buy-and-hold equity is exactly each observed price divided by the first price, over the same first/last observations as the strategy. It is a **cost-free comparator**: no initial entry, exit, financing or other cost. It deliberately does not apply strategy turnover costs. A net-minus-benchmark return difference is descriptive, not estimated alpha or a like-for-like transaction-cost-adjusted comparison.
+
+The response adds `gross_equity`, `gross_total_return`, `period_turnover`, `period_cost_fractions`, `benchmark` (equity, returns, total return, drawdown, Sharpe and assumptions), `cost_impact_return_points` and `net_minus_benchmark_return_points`. Original fields remain. Cost impact is gross final equity minus net final equity, including compounding, and differs from the simple sum of period costs. API return-point fields are fractions: 0.011 means 1.1 percentage points (the UI labels `pp`). Period costs still use the original additive return convention.
+
+Example: prices100→110→121→121, exposure1 throughout, cost100 basis points on initial turnover1 gives gross return21%, net19.9%, compounded impact1.1 percentage points and summed period cost1%. Without costs, full exposure matches the benchmark. The performance table compares drawdowns and zero-risk-free Sharpe on identical periods. Exported reports include all new arrays and diagnostics. No execution or financial transactions occur.
