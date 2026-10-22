@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "pytest": {
+    "passed": 45,
+    "failed": 0
+  },
+  "scope": [
+    "Independent hand accounting: initialfee.01, rebalancefee.00198, netequity1.235025, gross1.25, totalturnover1.2",
+    "Asset net-capital contributions reconcile to return after actual fees; drawdown includes pre-allocation capital",
+    "Buy-and-hold versus fixed-target rebalance manual example and no future-row effect on prior period",
+    "Zero-weight constant asset contributes zero and has undefined correlation",
+    "Independently replayed original-author actual advanced UI handlers through tables, export and stale responses; Quant also verifies chart coordinates and audit title. DOM fixture is not browser rendering evidence."
+  ],
+  "issues": [],
+  "confidence": "High for bounded synthetic accounting, rebalance timing and inspected correlation mechanics; no strategy, market-data or investment-validity conclusion.",
+  "limits": "Long-only fixed-target research; pro-rata fee funding is an explicit simplification. No execution, corporate actions, financing, taxes or market calibration.",
+  "application": "quantforge",
+  "version": "0.4.0",
+  "reviewer": "build_enterprise automated independent science/QA reviewer",
+  "independent_author": true,
+  "reviewer_production_changes": false,
+  "checked_at_utc": "2026-10-22T17:56:00.247613+00:00",
+  "hashes": [
+    {
+      "path": "README.md",
+      "sha256": "d3e172d3d26fc614cfc7133f342ef857d450810fba9a977bf3be824508c0e8eb"
+    },
+    {
+      "path": "app/USER_GUIDE.md",
+      "sha256": "43ad5ad4b411a8a395a45b200f5d8511ce825bdb1ae4ec1b5b6dd2c9d1970146"
+    },
+    {
+      "path": "app/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/access.py",
+      "sha256": "bc340ac2d8658f547b2a58012834d302482fea40a8773ba0363b4a1b2edf251c"
+    },
+    {
+      "path": "app/guard.py",
+      "sha256": "d1eda2150e58503114c6cf4ba36d5958aa7e2cfbb496fc0d8026b5c9da4beb77"
+    },
+    {
+      "path": "app/main.py",
+      "sha256": "9b5027edc422f24d2c80dca32d900e62be720cf161be369fa9f80a654e074758"
+    },
+    {
+      "path": "app/portfolio.py",
+      "sha256": "a0f1b14a26855deb962ad9b3debd333923f0edabddd345f51190300ce5be94a2"
+    },
+    {
+      "path": "app/static/access.js",
+      "sha256": "f7a4a09a26b83052edc956cf886195c0f4687b0661a166320f460f3e3ccad0d5"
+    },
+    {
+      "path": "app/static/advanced-data.js",
+      "sha256": "3f7d49874c1b9f66b89ec3d6a4bec1f36a320833dda25161d1e718dec5381a17"
+    },
+    {
+      "path": "app/static/advanced-ui.js",
+      "sha256": "4afdc2da1dbe62e317f7b99ec7a4be8a60213ad81056d71dbdac02244666f604"
+    },
+    {
+      "path": "app/static/config.js",
+      "sha256": "efe0da8469d17a3ca20894351bdf011cc7f0f0876a5566b1eebc94d81e99f027"
+    },
+    {
+      "path": "app/static/data.js",
+      "sha256": "c12a15bcb1b73fafcf4a5484562b0ccdf657fc53933596222b79c8fdf9dd53c0"
+    },
+    {
+      "path": "app/static/index.html",
+      "sha256": "9c06c05d3df52b0fb37b60e34a68ec791fda14c2f3661342cc343231ddbbbb74"
+    },
+    {
+      "path": "app/static/style.css",
+      "sha256": "2f18278b89e88530bfd63e93255cf54725bf3c54ea633429ba4bcb909ee4220f"
+    },
+    {
+      "path": "app/static/workbench.js",
+      "sha256": "597084a779f3544373b9dd2c8d9bb8a8e1e5a174cd3b233067966b6f0f446c0f"
+    },
+    {
+      "path": "docs/USER_GUIDE.md",
+      "sha256": "43ad5ad4b411a8a395a45b200f5d8511ce825bdb1ae4ec1b5b6dd2c9d1970146"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "f67d2fa95d21657eebbfe8c3712204226378f4345a9e004497b3821c371c49c1"
+    },
+    {
+      "path": "tests/test_independent04_enterprise.py",
+      "sha256": "bdf79359f4d72b25ccc8669c139dbe781b6693302b01a609399e4ba16af9da38"
+    },
+    {
+      "path": "tools/test_access.mjs",
+      "sha256": "26a68d9b7b2b26c741e9f00ede37131c7f25eef474b988bdb8e6b1218d2021d9"
+    },
+    {
+      "path": "tools/test_access_independent.mjs",
+      "sha256": "a011463941834d70d767df7204201aff25a59172bd6955be548cd34c7ae93307"
+    },
+    {
+      "path": "tools/test_portfolio_ui.mjs",
+      "sha256": "24a952b2006b3ee2097a06f4b0c86f39efc4afdb9bb3f4ffd776efb0d9223e2b"
+    },
+    {
+      "path": "tools/test_ui.mjs",
+      "sha256": "3ffa3c3b8790fe6234f51f884a18d90266271201d0372f2cbf76b367fd01ad14"
+    },
+    {
+      "path": "tools/ui-test-dom.mjs",
+      "sha256": "23b2b2173fade8ce07fd653e3d5813fbc16185b3ba5a312679eaeca46647991d"
+    }
+  ],
+  "hash_scope": "Current complete application source/UI/guide, README, primary guide, project metadata, independent numeric regression and executed Node test/helper sources. Docker/dependency infrastructure is owned and validated separately by root; its accepted complete backend runtime proof hash is recorded in runtime_http.",
+  "commands": [
+    "work/.venv/bin/python -m pytest -q (repository cwd)",
+    "node --test tools/test_*.mjs",
+    "work/.venv/bin/python -m bandit -r app -ll",
+    "work/.venv/bin/python work/improvements-0.4/science_independent_http.py (workspace cwd; actual local containers)"
+  ],
+  "frontend": "PASS 11 Node runner entries using tools/test_*.mjs. Real application handlers execute in DOM fixture; separate actual browser visual QA remains root-owned.",
+  "bandit": "PASS0 configured findings",
+  "evidence": [
+    "independent-pytest.txt",
+    "independent-node.txt",
+    "independent-bandit.txt",
+    "independent-docker-http.json"
+  ],
+  "runtime_http": {
+    "status": "PASS",
+    "evidence": "independent-docker-http.json",
+    "evidence_sha256": "88f6a2805a6e937f4109f1454882ccc1a29dca0d95a78f37f012aa9dac212a0a",
+    "backend_freshness": {
+      "status": "PASS",
+      "root_proof_path": "outputs/evidence/improvements-0.4/runtime-source.json",
+      "root_proof_sha256": "e5392418dda519a74650eb84e06dd5fca9114b5cfb7b5ed4a8f1b719ba91d3b8",
+      "container": "278ebf816c74f611b4d64235d81c762f04ed7365ab32ebb49c5e4726ba58254f",
+      "application_files_verified": 14,
+      "method": "Every current app file hash and complete file set equals accepted root proof of the running container.",
+      "runtime_config_evidence": "docker-runtime.json",
+      "runtime_config_sha256": "1ece0da93e9c417e7f407609105eec1bdf06410f8bd7b371d46564192a652541",
+      "image_id": "sha256:c4df717d190f68361d9632b03873d18ebcb1c0210b876b45a14f153897d79c1c",
+      "native_health_status": "healthy",
+      "native_health_scope": "Root runtime inspection reports healthy on this exact container/image; independent reviewer checks same current proof and actual HTTP health separately."
+    },
+    "served_assets_verified": 10,
+    "note": "Final recheck against new native-health images: actual health/feature/error HTTP and all served bytes PASS; every existing reviewed source manifest hash unchanged. Complete root backend proof and native-health runtime inspection match exact current container/image IDs."
+  },
+  "resolved_issues": [
+    {
+      "severity": "P2",
+      "detail": "Root browser found undefined get lookup in advanced renderer; earlier data-only tests did not execute full handler.",
+      "resolution": "Original author added local renderer DOM lookup. Independently inspected and replayed actual load/run/render/export handlers and stale-response regressions; new full Node suite passes. Running served script bytes match reviewed fix."
+    }
+  ]
+}

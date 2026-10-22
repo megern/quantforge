@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "quantforge"
-version = "0.3.0"
+version = "0.4.0"
 description = "Lagged-position research backtests with transaction costs; no orders or trading."
 requires-python = ">=3.12"
 license = "MIT"

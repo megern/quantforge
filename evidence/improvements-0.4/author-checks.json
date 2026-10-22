@@ -1,0 +1,84 @@
+{
+  "application": "quantforge",
+  "version": "0.4.0",
+  "recorded_at_utc": "2026-10-22T14:13:42.809757+00:00",
+  "role": "Application author verification, not independent or human review",
+  "checks": [
+    {
+      "name": "pytest",
+      "exit_code": 0
+    },
+    {
+      "name": "frontend",
+      "exit_code": 0
+    },
+    {
+      "name": "ruff",
+      "exit_code": 0
+    },
+    {
+      "name": "bandit",
+      "exit_code": 0
+    }
+  ],
+  "javascript_syntax": "all selfhosted JS checked, exit0",
+  "source_files": [
+    {
+      "sha256": "43ad5ad4b411a8a395a45b200f5d8511ce825bdb1ae4ec1b5b6dd2c9d1970146",
+      "path": "app/USER_GUIDE.md"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "app/__init__.py"
+    },
+    {
+      "sha256": "d1eda2150e58503114c6cf4ba36d5958aa7e2cfbb496fc0d8026b5c9da4beb77",
+      "path": "app/guard.py"
+    },
+    {
+      "sha256": "eb4b7f993eb02bc4b388e63def966ab5a342d5eb641aa4b12c6545718852b4bb",
+      "path": "app/main.py"
+    },
+    {
+      "sha256": "a0f1b14a26855deb962ad9b3debd333923f0edabddd345f51190300ce5be94a2",
+      "path": "app/portfolio.py"
+    },
+    {
+      "sha256": "3f7d49874c1b9f66b89ec3d6a4bec1f36a320833dda25161d1e718dec5381a17",
+      "path": "app/static/advanced-data.js"
+    },
+    {
+      "sha256": "ac43dce2f826bbc4655b7187e8ffe9c80ccb465056f8932e681b2c5969210fc6",
+      "path": "app/static/advanced-ui.js"
+    },
+    {
+      "sha256": "efe0da8469d17a3ca20894351bdf011cc7f0f0876a5566b1eebc94d81e99f027",
+      "path": "app/static/config.js"
+    },
+    {
+      "sha256": "c12a15bcb1b73fafcf4a5484562b0ccdf657fc53933596222b79c8fdf9dd53c0",
+      "path": "app/static/data.js"
+    },
+    {
+      "sha256": "73b791106458f69ae4c460ec1bd0468d861a8d195cadd7cf7c8b872a3d2a0742",
+      "path": "app/static/index.html"
+    },
+    {
+      "sha256": "2f18278b89e88530bfd63e93255cf54725bf3c54ea633429ba4bcb909ee4220f",
+      "path": "app/static/style.css"
+    },
+    {
+      "sha256": "597084a779f3544373b9dd2c8d9bb8a8e1e5a174cd3b233067966b6f0f446c0f",
+      "path": "app/static/workbench.js"
+    }
+  ],
+  "runtime_gates_not_claimed": [
+    "Docker build/runtime",
+    "browser interaction",
+    "API authentication and admission-control changes assigned to root after this checkpoint",
+    "independent QA",
+    "dependency/secret audits",
+    "CI and publication"
+  ],
+  "synthetic_examples": true
+}

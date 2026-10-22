@@ -127,7 +127,6 @@ test("synthetic CSV produces actual API request", () => {
     );
   }
 });
-console.log(`${checks} frontend checks passed for ${cfg.title}`);
 
 test("benchmark view keeps gross, net and benchmark concepts distinct", () => {
   const source = fs.readFileSync(
@@ -145,4 +144,46 @@ test("benchmark view keeps gross, net and benchmark concepts distinct", () => {
   assert.ok(source.includes("result.benchmark.equity"));
 });
 
-console.log(`${checks} final frontend checks passed for ${cfg.title} v0.3.0`);
+const advanced = require("../app/static/advanced-data.js");
+test("multiasset request aligns chosen columns and enforces explicit weights", () => {
+  const parsed = parseCSV("A,B\n100,200\n110,210\n120,220");
+  const request = advanced.portfolioInput(
+    parsed,
+    [
+      { name: "B", percent: 40 },
+      { name: "A", percent: 60 },
+    ],
+    { rebalance_every: 2, cost_bps: 5 },
+  );
+  assert.deepEqual(request.prices, [
+    [200, 100],
+    [210, 110],
+    [220, 120],
+  ]);
+  assert.deepEqual(request.weights, [0.4, 0.6]);
+  assert.throws(
+    () =>
+      advanced.portfolioInput(
+        parsed,
+        [
+          { name: "A", percent: 50 },
+          { name: "B", percent: 60 },
+        ],
+        {},
+      ),
+    /100%/,
+  );
+  assert.throws(
+    () =>
+      advanced.portfolioInput(
+        parsed,
+        [
+          { name: "A", percent: "" },
+          { name: "B", percent: 100 },
+        ],
+        {},
+      ),
+    /numeric weight/,
+  );
+});
+console.log(`${checks} frontend checks passed for ${cfg.title} v0.4.0`);

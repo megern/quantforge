@@ -1,0 +1,71 @@
+{
+  "application": "quantforge",
+  "version": "0.4.0",
+  "reviewer": "build_enterprise automated independent reviewer",
+  "checked_at_utc": "2026-10-22T17:55:40.312800+00:00",
+  "url": "http://127.0.0.1:18410",
+  "synthetic": true,
+  "checks": [
+    "Actual final container HTTP health is ok; current root inspection confirms native health healthy on exact matching image/container IDs",
+    "Current0.4 API version, root HTML, guide and every static file match reviewed source bytes",
+    "Actual portfolio endpoint matches hand-derived net equity1.235025, fees.01198, contribution reconciliation and no terminal rebalance",
+    "Invalid long-only weight total returns actual HTTP422"
+  ],
+  "scope": "Actual HTTP feature/error checks and served-byte matching. Backend container matching relies on accepted root-generated runtime source proof, independently checked against every current local app file. Not a browser-rendering or publication claim.",
+  "backend_freshness": {
+    "status": "PASS",
+    "root_proof_path": "outputs/evidence/improvements-0.4/runtime-source.json",
+    "root_proof_sha256": "e5392418dda519a74650eb84e06dd5fca9114b5cfb7b5ed4a8f1b719ba91d3b8",
+    "container": "278ebf816c74f611b4d64235d81c762f04ed7365ab32ebb49c5e4726ba58254f",
+    "application_files_verified": 14,
+    "method": "Every current app file hash and complete file set equals accepted root proof of the running container.",
+    "runtime_config_evidence": "docker-runtime.json",
+    "runtime_config_sha256": "1ece0da93e9c417e7f407609105eec1bdf06410f8bd7b371d46564192a652541",
+    "image_id": "sha256:c4df717d190f68361d9632b03873d18ebcb1c0210b876b45a14f153897d79c1c",
+    "native_health_status": "healthy",
+    "native_health_scope": "Root runtime inspection reports healthy on this exact container/image; independent reviewer checks same current proof and actual HTTP health separately."
+  },
+  "served_assets_sha256": [
+    {
+      "sha256": "f7a4a09a26b83052edc956cf886195c0f4687b0661a166320f460f3e3ccad0d5",
+      "path": "/static/access.js"
+    },
+    {
+      "sha256": "3f7d49874c1b9f66b89ec3d6a4bec1f36a320833dda25161d1e718dec5381a17",
+      "path": "/static/advanced-data.js"
+    },
+    {
+      "sha256": "4afdc2da1dbe62e317f7b99ec7a4be8a60213ad81056d71dbdac02244666f604",
+      "path": "/static/advanced-ui.js"
+    },
+    {
+      "sha256": "efe0da8469d17a3ca20894351bdf011cc7f0f0876a5566b1eebc94d81e99f027",
+      "path": "/static/config.js"
+    },
+    {
+      "sha256": "c12a15bcb1b73fafcf4a5484562b0ccdf657fc53933596222b79c8fdf9dd53c0",
+      "path": "/static/data.js"
+    },
+    {
+      "sha256": "9c06c05d3df52b0fb37b60e34a68ec791fda14c2f3661342cc343231ddbbbb74",
+      "path": "/static/index.html"
+    },
+    {
+      "sha256": "2f18278b89e88530bfd63e93255cf54725bf3c54ea633429ba4bcb909ee4220f",
+      "path": "/static/style.css"
+    },
+    {
+      "sha256": "597084a779f3544373b9dd2c8d9bb8a8e1e5a174cd3b233067966b6f0f446c0f",
+      "path": "/static/workbench.js"
+    },
+    {
+      "sha256": "9c06c05d3df52b0fb37b60e34a68ec791fda14c2f3661342cc343231ddbbbb74",
+      "path": "/"
+    },
+    {
+      "sha256": "43ad5ad4b411a8a395a45b200f5d8511ce825bdb1ae4ec1b5b6dd2c9d1970146",
+      "path": "/guide"
+    }
+  ],
+  "status": "PASS"
+}
