@@ -1,4 +1,6 @@
+from .access import AccessControl
 import math
+from .portfolio import PortfolioRequest, analyze_portfolio
 from .guard import InputGuard
 import numpy as np
 from fastapi import FastAPI, HTTPException
@@ -102,7 +104,7 @@ def analyze(req: Request):
     }
 
 
-app = FastAPI(title="QuantForge", version="0.3.0")
+app = FastAPI(title="QuantForge", version="0.4.0")
 
 
 STATIC = Path(__file__).parent / "static"
@@ -148,3 +150,14 @@ def run_analysis(req: Request):
 
 
 app.add_middleware(InputGuard)
+
+
+@app.post("/portfolio")
+def portfolio(request: PortfolioRequest):
+    try:
+        return analyze_portfolio(request)
+    except (ValueError, OverflowError, FloatingPointError) as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+app.add_middleware(AccessControl)

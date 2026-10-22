@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>QuantForge · Research workbench</title>
     <link rel="stylesheet" href="/static/style.css" />
+    <script src="/static/access.js"></script>
     <script src="/static/config.js" defer></script>
     <script src="/static/data.js" defer></script>
     <script src="/static/workbench.js" defer></script>
+    <script src="/static/advanced-data.js" defer></script>
+    <script src="/static/advanced-ui.js" defer></script>
   </head>
   <body>
     <header>
-      <span class="badge">Local CPU research · v0.3.0</span>
+      <span class="badge">Local CPU research · v0.4.0</span>
       <h1>QuantForge</h1>
       <p>Turn lagged research signals into an auditable backtest.</p>
       <a href="/docs">API documentation</a> · <a href="/guide">User guide</a>
@@ -90,6 +93,58 @@
           <summary>Exact API response</summary>
           <pre id="raw"></pre>
         </details>
+      </section>
+      <section class="full" id="portfolio-panel">
+        <h2>4. Fixed-weight multi-asset portfolio</h2>
+        <p>
+          Separate long-only research engine. Prices are chronological; target
+          weights apply to the next return. Initial allocation and drift-aware
+          rebalancing costs are explicit. No trades are executed.
+        </p>
+        <button id="portfolio-sample" class="secondary">
+          Load synthetic two-asset prices</button
+        ><label for="portfolio-file"
+          >Import multi-asset price CSV (2 MiB max)</label
+        ><input type="file" id="portfolio-file" accept=".csv,text/csv" />
+        <p id="portfolio-source" class="hint"></p>
+        <div id="portfolio-preview" class="scroll"></div>
+        <div id="portfolio-weights" class="choices"></div>
+        <div class="fields">
+          <div>
+            <label for="portfolio-every">Rebalance every N periods</label
+            ><input
+              type="number"
+              id="portfolio-every"
+              value="5"
+              min="1"
+              max="2000"
+            />
+          </div>
+          <div>
+            <label for="portfolio-cost">Turnover cost (basis points)</label
+            ><input
+              type="number"
+              id="portfolio-cost"
+              value="5"
+              min="0"
+              max="1000"
+            />
+          </div>
+        </div>
+        <button id="portfolio-run">Run portfolio</button
+        ><button id="portfolio-export" class="secondary" disabled>
+          Export portfolio report
+        </button>
+        <p id="portfolio-status" role="status"></p>
+        <div id="portfolio-results" hidden>
+          <canvas
+            id="portfolio-chart"
+            role="img"
+            aria-label="Net and gross portfolio equity"
+          ></canvas>
+          <div id="portfolio-table" class="scroll"></div>
+          <p id="portfolio-assumptions" class="hint"></p>
+        </div>
       </section>
     </main>
     <footer>

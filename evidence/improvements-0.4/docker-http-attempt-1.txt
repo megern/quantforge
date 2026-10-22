@@ -1,0 +1,87 @@
+{
+  "synthetic": true,
+  "http_status": 200,
+  "invalid_input_status": 422,
+  "latency_ms": [
+    105.9867909643799,
+    133.10870807617903,
+    133.005625102669
+  ],
+  "result": {
+    "gross_equity": [
+      1.0,
+      1.0,
+      0.9901960784313726,
+      1.0294117647058825,
+      1.0294117647058825,
+      0.9898190045248869
+    ],
+    "period_turnover": [
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "period_cost_fractions": [
+      0.0,
+      0.0005,
+      0.0,
+      0.0005,
+      0.0005
+    ],
+    "gross_total_return": -0.010180995475113086,
+    "cost_impact_return_points": 0.001508657952180581,
+    "benchmark": {
+      "name": "Buy and hold (cost-free comparator)",
+      "equity": [
+        1.0,
+        1.02,
+        1.01,
+        1.05,
+        1.04,
+        1.08
+      ],
+      "period_returns": [
+        0.020000000000000018,
+        -0.009803921568627416,
+        0.03960396039603964,
+        -0.00952380952380949,
+        0.03846153846153855
+      ],
+      "total_return": 0.08000000000000007,
+      "max_drawdown": 0.009803921568627416,
+      "sharpe": 10.216961851494801,
+      "cost_assumptions": "Continuously holds one unit of normalized price exposure from the first observation. No entry, exit, financing or other costs. This cost-free comparator is intentionally distinct from the strategy's stated turnover costs."
+    },
+    "net_minus_benchmark_return_points": -0.09168965342729374,
+    "equity": [
+      1.0,
+      1.0,
+      0.9896960784313726,
+      1.0288919627256845,
+      1.0283775167443217,
+      0.9883103465727063
+    ],
+    "net_returns": [
+      0.0,
+      -0.010303921568627417,
+      0.03960396039603964,
+      -0.0005,
+      -0.03896153846153855
+    ],
+    "positions": [
+      0.0,
+      1.0,
+      1.0,
+      0.0,
+      -1.0
+    ],
+    "turnover": 3.0,
+    "total_cost_fraction": 0.0015,
+    "total_return": -0.011689653427293667,
+    "max_drawdown": 0.039442057692307686,
+    "sharpe": -1.1456045356025206,
+    "assumptions": "Signals at t affect return t to t+1. Fractional long/short exposure; no financing, slippage beyond stated costs, or liquidation cost. Sharpe assumes zero risk-free rate."
+  }
+}

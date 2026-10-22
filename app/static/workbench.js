@@ -490,7 +490,7 @@ $("export-result").onclick = () => {
   if (lastResult)
     download(cfg.slug + "-report.json", {
       application: cfg.title,
-      version: "0.3.0",
+      version: "0.4.0",
       data_source: $("source-label").textContent,
       created_at: new Date().toISOString(),
       configuration: analysisSnapshot,
